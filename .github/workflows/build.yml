@@ -35,8 +35,8 @@ jobs:
         with:
 #          context: .
           push: false  # PRなのでpushしない場合
-#          tags: |
-#            myapp:latest
-#            myapp:pr-${{ github.event.number }}
+          tags: |
+            myapp:latest
+            myapp:pr-${{ github.event.number }}
 #          cache-from: type=gha
 #          cache-to: type=gha,mode=max
