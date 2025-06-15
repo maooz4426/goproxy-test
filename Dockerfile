@@ -1,6 +1,9 @@
 FROM public.ecr.aws/docker/library/golang:1.24.2
-COPY go.mod .
-COPY go.sum .
-COPY main.go .
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
 COPY vendor/ ./vendor/
-RUN go build -mod=vendor ./...
+COPY *.go ./
+
+RUN go build -mod=vendor -o main .
