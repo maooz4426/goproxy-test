@@ -16,6 +16,6 @@ jobs:
         with:
           go-version-file: "go.mod"
       - name: Install dependencies
-        run: go mod download
+        run: go mod vendor
       - name: go build
-        run: go build -v ./...
+        run: go build -mod=vendor -v ./...
