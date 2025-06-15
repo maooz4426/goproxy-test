@@ -1,0 +1,22 @@
+name: build
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Go
+        uses: actions/setup-go@v4de67c04ab4550d5b619aef0b37cd4ec732d7b37
+        with:
+          go-version-file: "go.mod"
+          chache: false
+      - name: Install dependencies
+        run: go mod download
+      - name: go build
+        run: go build -v ./...
