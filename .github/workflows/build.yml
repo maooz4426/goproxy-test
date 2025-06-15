@@ -19,7 +19,7 @@ jobs:
           owner: maooz4426
       - name: Configure Git for private modules
         run: |
-          git config --global url."https://x-access-token:${{ steps.generate.outputs.token }}@github.com".insteadOf "https://github.com"
+          git config --global url."https://x-access-token:${{ steps.generate-token.outputs.token }}@github.com".insteadOf "https://github.com"
         env:
           GOPRIVATE: github.com/maooz4426/*
       - name: Set up Go
